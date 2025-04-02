@@ -1,0 +1,151 @@
+/*@import url("reset.css");
+
+/* Réinitialisat
+ion des styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Styles généraux */
+body {
+    background: #F5F5F5;  /* Fond crème doux */
+    color: #333;  /* Texte noir/gris foncé pour plus de lisibilité */
+    text-align: center;
+}
+
+/* Navbar */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #333;  /* Fond noir pour la navbar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);  /* Ombre discrète sous la navbar */
+}
+
+h1 {
+    font-size: 28px;
+    color: #F1C27D;  /* Couleur crème claire pour le titre */
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: #F1C27D;  /* Couleur crème pour les liens */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+    font-size: 1.1rem;
+}
+
+nav ul li a:hover {
+    color: #E67E22;  /* Une touche d'orange pour les liens au survol */
+}
+
+/* Sections */
+section {
+    padding: 100px 50px;
+    max-width: 900px;
+    margin: auto;
+    background-color: #fff;  /* Fond blanc pour chaque section */
+    border-bottom: 2px solid #F1C27D;  /* Bordure crème claire */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);  /* Ombre discrète pour la section */
+}
+
+h2 {
+    color: #333;  /* Texte noir pour les titres */
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;  /* Gris foncé pour les paragraphes */
+    margin-bottom: 20px;
+}
+
+/* Aside (projets) */
+aside {
+    background: #333;  /* Fond noir pour la section des projets */
+    padding: 40px;
+    border-radius: 10px;
+    margin: 30px auto;
+    max-width: 900px;
+}
+
+aside h2 {
+    color: #F1C27D;  /* Crème pour les titres */
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+aside ul {
+    list-style: none;
+}
+
+aside ul li {
+    margin: 15px 0;
+}
+
+aside ul li a {
+    color: #F1C27D;  /* Crème pour les liens dans les projets */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+aside ul li a:hover {
+    text-decoration: underline;
+    color: #E67E22;  /* Orange au survol */
+}
+
+/* Footer */
+footer {
+    background: #333;  /* Fond noir pour le footer */
+    padding: 20px;
+    color: #333;
+    
+}
+
+footer ul li a {
+    color: #F1C27D;  /* Crème pour les liens dans le footer */
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    text-decoration: none;
+    color: #E67E22;  /* Orange au survol */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section, aside {
+        padding: 40px 15px;
+    }
+}
