@@ -1,151 +1,307 @@
-/*@import url("reset.css");
-
-/* Réinitialisat
-ion des styles */
-* {
+/* Global Styles */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f7fafc;
+  color: #4a5568;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+} /* Police via Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+/* Style général du body */
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
 }
 
-/* Styles généraux */
-body {
-  background: #f5f5f5; /* Fond crème doux */
-  color: #333; /* Texte noir/gris foncé pour plus de lisibilité */
+/* Header */
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
   text-align: center;
 }
 
-/* Navbar */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: #333; /* Fond noir pour la navbar */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 50px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Ombre discrète sous la navbar */
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
-h1 {
-  font-size: 28px;
-  color: #f1c27d; /* Couleur crème claire pour le titre */
-  font-weight: 700;
-}
-
-nav ul {
+header nav ul {
   list-style: none;
-  display: flex;
-  gap: 30px;
+  padding: 0;
 }
 
-nav ul li a {
-  color: #f1c27d; /* Couleur crème pour les liens */
+header nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+header nav ul li a {
   text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease-in-out;
+  color: white;
   font-size: 1.1rem;
+  font-weight: 500;
 }
 
-nav ul li a:hover {
-  color: #e67e22; /* Une touche d'orange pour les liens au survol */
+header nav ul li a:hover {
+  color: #f4a261; /* Couleur d'hover : orange clair */
 }
 
-/* Sections */
+/* Section générale */
 section {
-  padding: 100px 50px;
-  max-width: 900px;
-  margin: auto;
-  background-color: #fff; /* Fond blanc pour chaque section */
-  border-bottom: 2px solid #f1c27d; /* Bordure crème claire */
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre discrète pour la section */
+  padding: 50px 0;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section Projets */
+.project-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.project-card {
+  min-width: 250px;
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  scroll-snap-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.05); /* Effet zoom au survol */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
+}
+
+.project-card a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-card a:hover {
+  background-color: #f0f4f8; /* Fond clair au survol */
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333; /* Titre couleur foncée */
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  color: #666; /* Couleur du texte des projets */
+}
+
+/* Header de section */
 h2 {
-  color: #333; /* Texte noir pour les titres */
   font-size: 2rem;
-  margin-bottom: 20px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #444;
 }
 
 p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #555; /* Gris foncé pour les paragraphes */
-  margin-bottom: 20px;
-}
-
-/* Aside (projets) */
-aside {
-  background: #333; /* Fond noir pour la section des projets */
-  padding: 40px;
-  border-radius: 10px;
-  margin: 30px auto;
-  max-width: 900px;
-}
-
-aside h2 {
-  color: #f1c27d; /* Crème pour les titres */
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
-
-aside ul {
-  list-style: none;
-}
-
-aside ul li {
-  margin: 15px 0;
-}
-
-aside ul li a {
-  color: #f1c27d; /* Crème pour les liens dans les projets */
-  text-decoration: none;
-  font-weight: 600;
-}
-
-aside ul li a:hover {
-  text-decoration: underline;
-  color: #e67e22; /* Orange au survol */
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
 }
 
 /* Footer */
 footer {
-  background: #333; /* Fond noir pour le footer */
-  padding: 20px;
-  color: #333;
+  background-color: #333;
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  display: inline-block;
+  margin: 0 15px;
 }
 
 footer ul li a {
-  color: #f1c27d; /* Crème pour les liens dans le footer */
   text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 footer ul li a:hover {
-  text-decoration: none;
-  color: #e67e22; /* Orange au survol */
+  color: #f4a261; /* Couleur d'hover : orange clair */
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    text-align: center;
-  }
+/* Effet de fade-in au défilement */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
 
-  header {
-    flex-direction: column;
-    align-items: center;
-  }
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  section,
-  aside {
-    padding: 40px 15px;
-  }
+h1,
+h2,
+h3 {
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header */
+.header {
+  background-color: #2d3748;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+}
+
+.header nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.header nav a {
+  color: white;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.header nav a:hover {
+  color: #38b2ac; /* Cyan */
+}
+
+/* Main Content */
+main {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  font-size: 1.75rem;
+  border-bottom: 2px solid #38b2ac;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+/* Mes Projets */
+.project-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding-bottom: 20px;
+  scroll-snap-type: x mandatory;
+}
+
+.project-card {
+  min-width: 250px;
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  scroll-snap-align: start;
+}
+
+.project-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.project-card a {
+  color: #3182ce;
+  font-size: 0.9rem;
+}
+
+.project-card a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: #2d3748;
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+}
+
+#Contact {
+  color: #3182ce;
+}
+
+footer h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+footer ul {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+footer ul li a {
+  color: #38b2ac;
+}
+
+footer ul li a:hover {
+  text-decoration: underline;
 }
